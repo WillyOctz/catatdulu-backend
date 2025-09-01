@@ -36,7 +36,7 @@ public class EmailForwadService {
             );
 
             ResponseEntity<String> response = restTemplate.exchange(
-                    "http://api.brevo.com/v3/smtp/email",
+                    "https://api.brevo.com/v3/smtp/email",
                     HttpMethod.POST,
                     new HttpEntity<>(emailRequest, headers),
                     String.class
