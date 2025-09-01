@@ -1,5 +1,12 @@
+# Build stage
+FROM eclipse-temurin:21-jdk AS builder
+WORKDIR /app
+COPY . .
+RUN ./mvnw clean package -DskipTests
+
+# Runtime stage
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY target/catatdulu-users-0.0.1-SNAPSHOT.jar catatdulu-v0.1.jar
-EXPOSE 9000
-ENTRYPOINT ["java", "-jar", "catatdulu-v0.1.jar"]
+COPY --from=builder /app/target/*.jar app.jar
+EXPOSE 8000
+ENTRYPOINT ["java", "-jar", "app.jar"]
