@@ -30,12 +30,12 @@ public class SecurityConfig {
     private final JwtRequestFilter jwtRequestFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1.0/condition", "/api/users/register", "/api/users/activate", "/api/users/login", "/categories/**").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1.0/condition", "/api/users/register", "/api/users/activate", "/api/users/login", "/api/users/current", "/api/categories/**", "/api/expenses/**", "/api/incomes/**", "/api/dashboard/**", "/api/filter/**").permitAll()
                         .anyRequest().authenticated()).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                        .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }

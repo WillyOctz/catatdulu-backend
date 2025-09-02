@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/filter")
+@RequestMapping("/api/filter")
 public class FilterController {
 
     private final ExpenseService expenseService;
