@@ -3,7 +3,6 @@ package com.cd_u.catatdulu_users.controller;
 import com.cd_u.catatdulu_users.dto.CategoryDTO;
 import com.cd_u.catatdulu_users.service.CategoryService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,14 +1,13 @@
 package com.cd_u.catatdulu_users.service;
 
-import com.cd_u.catatdulu_users.dto.CategoryDTO;
 import com.cd_u.catatdulu_users.dto.ExpenseDTO;
+import com.cd_u.catatdulu_users.dto.IncomeDTO;
 import com.cd_u.catatdulu_users.model.CategoryModel;
 import com.cd_u.catatdulu_users.model.ExpenseModel;
 import com.cd_u.catatdulu_users.model.UserModel;
 import com.cd_u.catatdulu_users.repository.CategoryRepository;
 import com.cd_u.catatdulu_users.repository.ExpenseRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 

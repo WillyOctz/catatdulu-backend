@@ -41,4 +41,5 @@ public interface ExpenseRepository extends JpaRepository<ExpenseModel, Long> {
 
     @Query("SELECT e FROM ExpenseModel e WHERE e.profile.id = :profile_id AND e.date = :date")
     List<ExpenseModel> findByProfileIdAndDate(@Param("profile_id") Long profileId, @Param("date") LocalDate date);
+
 }

@@ -4,6 +4,8 @@ import com.cd_u.catatdulu_users.dto.CategoryDTO;
 import com.cd_u.catatdulu_users.model.CategoryModel;
 import com.cd_u.catatdulu_users.model.UserModel;
 import com.cd_u.catatdulu_users.repository.CategoryRepository;
+import com.cd_u.catatdulu_users.repository.ExpenseRepository;
+import com.cd_u.catatdulu_users.repository.IncomeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class CategoryService {
 
     private final UserService userService;
     private final CategoryRepository categoryRepository;
+    private final ExpenseRepository expenseRepository;
+    private final IncomeRepository incomeRepository;
 
     private CategoryModel toModel(CategoryDTO categoryDTO, UserModel user) {
         return CategoryModel.builder()
@@ -79,4 +83,12 @@ public class CategoryService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category not found or accessible"));
         return toDTO(category);
     }
+
+    //public void deleteCategory(Long categoryId) {
+        //UserModel user = userService.getCurrentProfile();
+       // CategoryModel category = categoryRepository.findByIdAndProfileId(categoryId, user.getId())
+                //.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category not found or accessible"));
+
+        //categoryRepository.delete(category);
+    //}
 }

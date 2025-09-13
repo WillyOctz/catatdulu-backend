@@ -57,6 +57,12 @@ public class UserController {
         return ResponseEntity.ok(userService.toResponseDto(currentUser));
     }
 
+    @GetMapping("/profile")
+    public ResponseEntity<UserResponseDTO> getPublicProfile() {
+        UserResponseDTO userResponseDTO = userService.getPublicProfile(null);
+        return ResponseEntity.ok(userResponseDTO);
+    }
+
     @GetMapping("/test")
     public String test() {
         return "Test Successful";
